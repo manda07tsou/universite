@@ -1,0 +1,14 @@
+@import './variables';
+
+@font-face {
+    font-family: 'Inter';
+    src: url("/assets/fonts/Inter-Medium.ttf");
+}
+
+body{
+    font-family: 'Inter';
+    font-size: 14px;
+    line-height: 1.8;
+    background-color: var(--bg);
+    color: var(--color);
+}

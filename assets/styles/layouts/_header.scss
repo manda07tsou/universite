@@ -1,0 +1,117 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: var(--bg-light);
+    padding-top: space(3);
+    padding-bottom: space(3);
+    @extend %container;
+}
+
+.header-underlined::after{
+    position: absolute;
+    left: var(--container-padding);
+    right: var(--container-padding);
+    bottom:0;
+    display: block;
+    content: "";
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+.header-logo{
+    font-size: 1.2em;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.header-nav{
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 0;
+    overflow: hidden;
+    background-color: var(--bg-light);
+    z-index: 5;
+    @extend %container;
+}
+
+.header__nav-item{
+    display: block;
+    color: inherit; 
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    transition: color .3s;
+
+    &.active{
+        color: var(--primary);
+    }
+
+    &:hover{
+        opacity: none;
+        color: var(--primary);
+    }
+}
+
+.header.is-open{
+    .header-nav{
+        padding-top: 20px;
+        transition: height .3s;
+        height: 100vh;
+        z-index: 100;
+    }
+
+    @keyframes animateItem{
+        from{
+            opacity: 0;
+            transform:  translateY(-7px);
+        }
+        to{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .header__nav-item{
+        animation: animateItem .5s both;
+    }
+
+    @for $i from 1 through 4 {
+        & .header__nav-item:nth-child(#{$i}) {
+          animation-delay: .05s * $i;
+        }
+      }
+}
+
+@include up(900px){
+    .header.is-open .header-nav{
+        padding-top: 0;
+        transition: none;
+        height: auto;
+    }
+
+    .header-nav{
+        position: static;
+        height: auto;
+        padding: 0!important;
+    }
+
+    .header__nav-item{
+        display: inline-block;
+        padding: 0px space(4);
+        margin: 0;
+        font-size: 1em;
+
+        &:last-child{
+            padding-right: 0px;
+        }
+    }
+
+    .burger{
+        display: none;
+    }
+}

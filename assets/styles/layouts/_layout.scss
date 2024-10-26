@@ -1,0 +1,11 @@
+.container, %container{
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+}
+
+@include up(900px){
+    :root{
+        --container-padding: 40px;
+        --section-padding: 70px;
+    }
+}

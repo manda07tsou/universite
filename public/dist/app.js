@@ -16,7 +16,27 @@
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/app.scss */ \"./assets/styles/app.scss\");\n\r\n\r\nconsole.log('bienvenue sur notre test, test de webpack ici');\r\n\n\n//# sourceURL=webpack://bachelors/./assets/app.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/app.scss */ \"./assets/styles/app.scss\");\n/* harmony import */ var _elements_elements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements/elements */ \"./assets/elements/elements.js\");\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://bachelors/./assets/app.js?");
+
+/***/ }),
+
+/***/ "./assets/elements/burger.js":
+/*!***********************************!*\
+  !*** ./assets/elements/burger.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Burger: () => (/* binding */ Burger)\n/* harmony export */ });\nclass Burger extends HTMLElement{\r\n    constructor(){\r\n        super()\r\n        this.open = false;\r\n        this.parentEl = document.querySelector(this.getAttribute('parent'))\r\n    }\r\n\r\n    connectedCallback(){\r\n        this.setAttribute('isOpen', this.open)\r\n        this.innerHTML = `\r\n                <span></span>\r\n                <span></span>\r\n                <span></span>\r\n        `\r\n        this.addEventListener('click', (e) => {\r\n            this.parentEl.classList.toggle('is-open')\r\n            this.open = !this.open\r\n            this.setAttribute('isOpen', this.open)\r\n        })\r\n    }\r\n}\r\n\n\n//# sourceURL=webpack://bachelors/./assets/elements/burger.js?");
+
+/***/ }),
+
+/***/ "./assets/elements/elements.js":
+/*!*************************************!*\
+  !*** ./assets/elements/elements.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./burger */ \"./assets/elements/burger.js\");\n\r\n\r\ncustomElements.define('burger-menu', _burger__WEBPACK_IMPORTED_MODULE_0__.Burger)\n\n//# sourceURL=webpack://bachelors/./assets/elements/elements.js?");
 
 /***/ }),
 
@@ -57,6 +77,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports

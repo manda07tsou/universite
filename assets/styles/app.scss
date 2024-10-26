@@ -1,6 +1,11 @@
-$bg: rgb(5, 121, 72);
+@import './tools/reset';
+@import './tools/mixins';
+@import './tools/functions';
 
-body{
-    background-color: $bg;
-    color: white;
-}
+@import './app/index';
+
+@import './layouts/layout';
+@import './layouts/header';
+
+@import './elements/burger';
+@import './elements/btn';
