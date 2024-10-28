@@ -1,0 +1,29 @@
+.bg, %bg{
+    background-color: var(--bg)!important;
+    color: var(--color)!important;
+}
+
+.bg-light, %bg-light{
+    background-color: var(--bg-light)!important;
+    color: var(--color)!important;
+}
+
+.bg-primary, %bg-primary{
+    background-color: var(--primary)!important;
+    color: var(--primary-inversed)!important;
+}
+
+.bg-secondary, %bg-secondary{
+    background-color: var(--secondary)!important;
+    color: var(--secondary-inversed)!important;
+}
+
+.bg-success, %bg-success{
+    background-color: var(--success)!important;
+    color: var(--success-inversed)!important;
+}
+
+.bg-danger, %bg-danger{
+    background-color: var(--danger)!important;
+    color: var(--danger-inversed)!important;
+}

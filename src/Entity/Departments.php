@@ -17,12 +17,12 @@ class Departments
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $diploma_required = null;
+    private ?string $diplomaRequired = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $diploma_delivered = null;
+    private ?string $diplomaDelivered = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'departments')]
     #[ORM\JoinColumn(nullable: false)]
     private ?formations $formation = null;
 
@@ -32,9 +32,9 @@ class Departments
     #[ORM\OneToMany(targetEntity: Parcours::class, mappedBy: 'department')]
     private Collection $parcours;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(fetch:'EAGER')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?filieres $filiere = null;
+    private ?Filieres $filiere = null;
 
     public function __construct()
     {
@@ -48,24 +48,23 @@ class Departments
 
     public function getDiplomaRequired(): ?string
     {
-        return $this->diploma_required;
+        return $this->diplomaRequired;
     }
 
     public function setDiplomaRequired(string $diploma_required): static
     {
-        $this->diploma_required = $diploma_required;
-
+        $this->diplomaRequired = $diploma_required;
         return $this;
     }
 
     public function getDiplomaDelivered(): ?string
     {
-        return $this->diploma_delivered;
+        return $this->diplomaDelivered;
     }
 
     public function setDiplomaDelivered(string $diploma_delivered): static
     {
-        $this->diploma_delivered = $diploma_delivered;
+        $this->diplomaDelivered = $diploma_delivered;
 
         return $this;
     }

@@ -1,0 +1,19 @@
+.institution__meta{
+    display: flex;
+    align-items: center;
+    gap: space(1);
+}
+
+.institution-name{
+    color: var(--primary);
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1em;
+    margin-bottom: 4px;
+}
+
+.institution-name-def{
+    opacity: .5;
+    font-size: .85em;
+    line-height: 1.2;
+}

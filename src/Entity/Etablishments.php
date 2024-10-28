@@ -28,9 +28,10 @@ class Etablishments
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $slogan = null;
 
+
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?users $user = null;
+    private ?Users $user = null;
 
     /**
      * @var Collection<int, Formations>
@@ -118,9 +119,9 @@ class Etablishments
     /**
      * @return Collection<int, Formations>
      */
-    public function getFormations(): Collection
+    public function getFormations()
     {
-        return $this->formations;
+        return count($this->formations) > 1 ? $this->formations : $this->formations[0];
     }
 
     public function addFormation(Formations $formation): static

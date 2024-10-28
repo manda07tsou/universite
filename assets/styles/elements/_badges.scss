@@ -1,0 +1,49 @@
+%badge{
+    display: inline-flex;
+    align-items: center;
+    padding: .3em .6em;
+    border-radius: 5px;
+    font-size: .85em;
+    line-height: 1em;
+}
+
+.badge{
+    @extend %badge;
+    background-color: gainsboro;
+    color: rgb(26, 26, 26);
+}
+.badge-primary{
+    @extend %bg-primary;
+    @extend %badge;
+}
+
+.badge-secondary{
+    @extend %bg-secondary;
+    @extend %badge;
+}
+
+.badge-tierciary{
+    background-color: gray;
+    color: var(--secondary-inversed);
+    @extend %badge;
+}
+
+.badge-success{
+    @extend %bg-success;
+    @extend %badge;
+}
+
+.badge-danger{
+    @extend %bg-danger;
+    @extend %badge;
+}
+
+.badge-rounded{
+    border-radius: 50px!important;
+}
+
+.badge-small{
+    font-size: .8em;
+    padding: .2em .4em;
+
+}

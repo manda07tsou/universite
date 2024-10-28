@@ -1,0 +1,34 @@
+<div class="card card__institution">
+    <a href="#" class="card-link" title="Cliquer pour plus d'information"></a>
+
+    <div class="card-header institution__meta">
+        <img class="avatar" alt="logo" src=""/>
+        <div>
+            <div class="institution-name">{{ etab.name }}</div>
+            <div class="institution-name-def">Université Privée Hay</div>
+        </div>
+        <a href="#" class="card__institution-link"><i class="bi bi-three-dots-vertical"></i></a>
+    </div>
+    <div class="card-body">
+        <div>
+            <p class="text-strong mr-1">Formation</p>
+            <ul>
+                {% for key, type_formation in etab.formations.formation_types %}
+                    <li class="badge-{{ etab.formations.getFormationTypeColor(key) }}">{{ type_formation }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="mt-2">
+            {% set departments = etab.formations.departments %}
+            <div class="flex align-baseline">
+                <span class="text-strong mb-1">Filières proposée</span>
+                <div class="badge-primary badge-small ml-1">{{ departments|length }}</div>
+            </div>
+            <ul class="list">
+                {% for department in departments  %}
+                    <li> {{ department.filiere.filiere}} </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

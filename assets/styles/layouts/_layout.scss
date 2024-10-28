@@ -3,9 +3,37 @@
     padding-right: var(--container-padding);
 }
 
+.section, %section{
+    @extend %container;
+    padding-top: var(--section-padding);
+    padding-bottom: calc(var(--section-padding) + 10px);
+}
+
 @include up(900px){
     :root{
         --container-padding: 40px;
         --section-padding: 70px;
     }
+}
+.flex{
+    display: flex;
+    align-items: center;
+
+}
+
+.align-baseline{
+    align-items: baseline!important;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.grid__auto-fill{
+    --gap: 15px;
+    --min-column: 200px;
+    display: grid;
+    grid-template-columns:repeat(auto-fill, minmax(var(--min-column), 1fr));
+    gap: var(--gap);
+    grid-auto-flow: dense;
 }

@@ -2,54 +2,52 @@
 
 namespace App\Entity;
 
-use App\Repository\FormationsRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Traits\FormationTypeTrait;
+use App\Repository\FormationsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: FormationsRepository::class)]
 class Formations
 {
+    use FormationTypeTrait;
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $type_formation = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $admission_condition = null;
+    private ?string $admissionCondition = null;
 
     #[ORM\ManyToOne(inversedBy: 'formations')]
     #[ORM\JoinColumn(nullable: false)]
     private ?etablishments $etablishment = null;
+
+    #[ORM\OneToMany(targetEntity: Departments::class, mappedBy: 'formation')]
+    private Collection $departments;
+    
+    public function __construct()
+    {
+        $this->departments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTypeFormation(): ?string
-    {
-        return $this->type_formation;
-    }
-
-    public function setTypeFormation(string $type_formation): static
-    {
-        $this->type_formation = $type_formation;
-
-        return $this;
-    }
 
     public function getAdmissionCondition(): ?string
     {
-        return $this->admission_condition;
+        return $this->admissionCondition;
     }
 
-    public function setAdmissionCondition(string $admission_condition): static
+    public function setAdmissionCondition(string $admissionCondition): static
     {
-        $this->admission_condition = $admission_condition;
-
+        $this->admissionCondition = $admissionCondition;
         return $this;
     }
 
@@ -63,5 +61,10 @@ class Formations
         $this->etablishment = $etablishment;
 
         return $this;
+    }
+
+    public function getDepartments(): Collection
+    {
+        return $this->departments;
     }
 }

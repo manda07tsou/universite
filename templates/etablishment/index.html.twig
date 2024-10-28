@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste etablissements{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="grid__auto-fill" style="--min-column: 250px; --gap: 20px">
+            {% for etab in etablishments %}
+                {% include "etablishment/_card.html.twig" %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

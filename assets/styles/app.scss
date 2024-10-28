@@ -1,11 +1,17 @@
 @import './tools/reset';
 @import './tools/mixins';
 @import './tools/functions';
+@import './tools/utils';
 
 @import './app/index';
 
 @import './layouts/layout';
 @import './layouts/header';
+@import './layouts/etablishments-header';
 
 @import './elements/burger';
 @import './elements/btn';
+@import './elements/card';
+@import './elements/avatars';
+@import './elements/badges';
+@import './elements/lists';
