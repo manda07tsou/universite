@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etablissement profil{% endblock %}
+
+{% block body %}
+    <div class="profil__header">
+        <div class="institution__meta">
+            <img src="" class="avatar avatar-large" alt="">
+            <div>
+                <div class="institution-name">{{ etablishment.name }} </div>
+                <p class="institution-name-def">Université Privée Hay</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="profil__nav">
+        <div class="nav-sticky">
+            <a href="" class="nav-item active"><i class="bi bi-card-text icon"></i>Généralités</a>
+            <a href="#" class="nav-item"><i class="bi bi-card-text icon"></i>Nos formations</a>
+            <a href="#" class="nav-item"><i class="bi bi-card-text icon"></i>A propos</a>
+            <a href="#" class="nav-item"><i class="bi bi-card-text icon"></i>Nos coordonnées</a>
+            <a href="#" class="nav-item"><i class="bi bi-card-text icon"></i>actualités</a>
+        </div>
+    </div>
+{% endblock %}

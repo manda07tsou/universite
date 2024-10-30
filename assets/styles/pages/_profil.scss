@@ -1,0 +1,56 @@
+.profil__header{
+    @extend %container;
+    padding-top: space(4);
+    padding-bottom: space(4);
+    background-color: var(--bg-light);
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &::after{
+        position: absolute;
+        left: var(--container-padding);
+        right: var(--container-padding);
+        bottom:0;
+        display: block;
+        content: "";
+        z-index: 10;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .institution-name{
+        font-size: 2em;
+        color: var(--color);
+    }
+
+    .institution-name-def{
+        font-size: 1em;
+    }
+}
+
+.profil__nav{
+    @extend %container;
+    background-color: var(--bg-light);
+    border-bottom: 1px solid  var(--border);
+
+    .nav-item{
+        padding-top: space(3);
+        padding-bottom: space(3);
+    }
+}
+
+@include up(900px){
+    .profil__header{
+        padding-top: space(6);
+        padding-bottom: space(6);
+
+        .institution-name{
+            font-size: 4em;
+            line-height: 1.2 ;
+        }
+
+        .institution-name-def{
+            font-size: 1.4em;
+        }
+    }
+}

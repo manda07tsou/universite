@@ -1,0 +1,117 @@
+.nav-item{
+    display: flex;
+    color: inherit;
+    padding: .4em .8em;
+    transition: .3s;
+    font-weight: bold;
+    text-wrap: nowrap;
+
+    .icon{
+        font-size: 1.1em;
+    }
+
+    &.link-disabled{
+        opacity: .4;
+        pointer-events: none;
+        user-select: none;
+    }
+}
+
+.nav{
+    display: flex;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: auto;
+    width: 100%;
+    scroll-behavior: smooth;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
+
+    .nav-item{
+        position: relative;
+        color: var(--primary);
+        border-right: 1px solid var(--border);
+
+        &:hover{
+            background-color: var(--primary);
+            color: var(--primary-inversed);
+            border-color: var(--primary);
+        }
+
+        &.active{
+            background-color: var(--primary);
+            color: var(--primary-inversed);
+            border-color: var(--primary);
+        }
+
+        &:last-child{
+            border-right: none;
+        }
+    }
+}
+
+.nav-vertical{
+    .nav-groups{
+        margin-bottom: space(2);
+        margin-left: .8em;
+    }
+
+    .nav-title{
+        font-weight: bold;
+        margin-bottom: 4px;
+        font-size: 1em;
+    }
+
+    .nav-item{
+        display: block;
+        border-radius: 4px;
+
+        &:hover{
+            background-color: var(--bg);
+        }
+    }
+}
+
+.nav-sticky{
+    display: flex;
+    gap: .2em;
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: auto;
+    width: 100%;
+    scroll-behavior: smooth;
+
+    .nav-item{
+        padding: .8em;
+        text-wrap:nowrap;
+        font-weight: bold;
+        position: relative;
+
+        &:hover, &.active{
+            color: var(--primary);
+        }
+        
+        &::after{
+            display: block;
+            content: "";
+            width: 0px;
+            height: 3px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--primary);
+            transition: .2s ease-out;
+            z-index: 10;
+        }
+
+        &.active::after, &:hover::after{
+            width: 100%;
+        }
+    }
+}
+
