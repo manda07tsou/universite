@@ -1,0 +1,88 @@
+%input{
+    display: block;
+    min-width: 200px;
+    width: 100%;
+    height: calc(3.03em + 2px);
+    padding: .5em .8em;
+    font-family: inherit;
+    font-size: .96em!important;
+    line-height: inherit;
+    color: var(--color);
+    border-radius: 4px;
+    border: 1px solid var(--form-border);
+    outline: none;
+
+    &::placeholder{
+        opacity: .5;
+    }
+
+    &:disabled{
+        cursor: initial;
+        background-color: var(--form-border);
+    }
+}
+
+.form-control{
+    @extend %input;
+}
+
+.form-select{
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23121c4299' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>");
+    background-size: 12px 12px;
+    background-position: center right 1em;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    @extend %input;
+}
+
+.form-btn-inside{
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    input, .form-control{
+        overflow: hidden;
+        padding-right: 40px;
+    }
+
+    .btn-inside{
+        position: absolute;
+        right: 0;
+        background-color: transparent!important;
+        border: none;
+        height: 100%;
+        width: 40px;
+        text-align: center;
+        cursor: pointer;
+        color: var(--color);
+        font-size: 1em;
+    }
+}
+
+.form-flex{
+    display: flex;
+    width: 100%;
+
+    & > *{
+        border-radius: 0;
+    }
+
+    & > *:first-child{
+        border-radius: 4px 0 0 4px;
+    }
+
+    & > *:last-child{
+        border-radius: 0 4px 4px 0;
+    }
+    
+    label{
+        background-color: var(--bg);
+        border: 1px solid var(--border);
+        border-right: none;
+        border-radius: 4px 0 0 4px;
+        display: flex;
+        align-items: center;
+        text-wrap: nowrap;
+        padding: 5px;
+    }
+}

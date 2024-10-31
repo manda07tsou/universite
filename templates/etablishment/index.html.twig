@@ -3,11 +3,61 @@
 {% block title %}Liste etablissements{% endblock %}
 
 {% block body %}
+    <div class="etablishment__header container">
+        <div class="filiere-filter">
+            <div class="form-flex">
+                <label for="#">Filières :</label>
+                <select name="filiere" is="select-submit" id="" data-link="/" class="form-select">
+                    {% if filters.filiere is defined %}
+                        <option value="">Toutes les filiere</option>
+                        {% for filiere in filieres %}
+                            <option value="{{ filiere.id }}" {{ filiere.id == filiere_selected.id ? 'selected' }}>{{ filiere.filiere }}</option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="" selected>Toutes les filiere</option>
+                         {% for filiere in filieres %}
+                            <option value="{{ filiere.id }}"}>{{ filiere.filiere }}</option>
+                        {% endfor %}
+                    {% endif %}
+                </select>
+            </div>
+        </div>
+        <form action="#" class="form-btn-inside etablishment__search-form">
+            <input type="text" class="form-control" placeholder="rechercher etablissements">
+            <button class="btn-inside"><i class="bi bi-search"></i></button>
+        </form>
+        <div class="dropdown">
+            <a href="#" class="btn bordered">Filtrer: <i class="bi bi-filter-square icon-right"></i></a>
+        </div>
+    </div>
+
     <div class="container mt-5">
-        <div class="grid__auto-fill" style="--min-column: 250px; --gap: 20px">
+        <div class="etablissement__listing-header">
+            {% if filters %}
+                <div class="filter-box">
+                    <div class="filter-box-content">
+                        <div class="flex space-between">
+                            <div class="text-strong">Filtrer par : </div>
+                            <a href="{{ path('etablishment_home')}}" class="btn-primary btn-small">Réinitialiser</a>
+                        </div>
+                        <div>
+                                {% for key, filter in filters %}
+                                    <span class="badge-tierciary">{{ key}}: {{ filter }}</span>
+                                {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <h2 class="text-secondary">Resultats :</h2>
+            {% else %}
+                <h2 class="text-primary">Liste des etablissements</h2>
+            {% endif %}
+
+        </div>
+        <div class="grid__auto-fill mt-5" style="--min-column: 250px; --gap: 20px">
             {% for etab in etablishments %}
                 {% include "etablishment/_card.html.twig" %}
             {% endfor %}
         </div>
     </div>
+
 {% endblock %}

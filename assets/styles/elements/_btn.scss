@@ -36,6 +36,19 @@
     }
 }
 
+.btn{
+    border: 1px solid var(--border); 
+}
+
+.btn{
+    border: 1px solid var(--border);
+}
+
+.btn-primary{
+    @extend %bg-primary;
+    @extend %btn;
+}
+
 .btn-primary-outlined{
     @extend %btn;
     color: var(--primary);
@@ -46,4 +59,12 @@
         color: var(--primary-inversed);
         background-color: var(--primary);
     }
+}
+
+//BUTTON SIZE
+.btn-small{
+    height: auto;
+    padding: .5em .7em!important;
+    font-size: .9em;
+    line-height: 1em;
 }

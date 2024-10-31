@@ -1,10 +1,10 @@
-.institution__meta{
+.etablishment__meta{
     display: flex;
     align-items: center;
     gap: space(1);
 }
 
-.institution-name{
+.etablishment-name{
     color: var(--primary);
     font-size: 1.5em;
     font-weight: bold;
@@ -12,7 +12,7 @@
     margin-bottom: 4px;
 }
 
-.institution-name-def{
+.etablishment-name-def{
     opacity: .5;
     font-size: .85em;
     line-height: 1.2;

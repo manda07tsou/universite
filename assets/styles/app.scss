@@ -2,6 +2,7 @@
 @import './tools/mixins';
 @import './tools/functions';
 @import './tools/utils';
+@import './tools/typography';
 
 @import './app/index';
 
@@ -16,5 +17,7 @@
 @import './elements/badges';
 @import './elements/lists';
 @import './elements/navs';
+@import './elements/form';
 
+@import './pages/etablishment';
 @import './pages/profil';

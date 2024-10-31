@@ -48,6 +48,16 @@
     }
 }
 
+//text COLOR
+.text-primary{
+    color: var(--primary);
+}
+
+.text-secondary{
+    color: var(--secondary);
+}
+
+//text size
 .text-small{
     font-size: .87em;
     line-height: 1.6em;
@@ -55,4 +65,15 @@
 
 .text-strong{
     font-weight: bold;
+}
+
+.icon{
+    margin-right: space(1);
+}
+
+.line{
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    margin: space(1) 0;
 }

@@ -17,7 +17,7 @@ class Parcours
     private ?string $parcour = null;
 
     #[ORM\ManyToOne(inversedBy: 'parcours')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'cascade')]
     private ?departments $department = null;
 
     public function getId(): ?int

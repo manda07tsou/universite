@@ -36,7 +36,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./burger */ \"./assets/elements/burger.js\");\n\r\n\r\ncustomElements.define('burger-menu', _burger__WEBPACK_IMPORTED_MODULE_0__.Burger)\n\n//# sourceURL=webpack://bachelors/./assets/elements/elements.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./burger */ \"./assets/elements/burger.js\");\n/* harmony import */ var _selectSubmit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./selectSubmit */ \"./assets/elements/selectSubmit.js\");\n\r\n\r\n\r\ncustomElements.define('burger-menu', _burger__WEBPACK_IMPORTED_MODULE_0__.Burger)\r\ncustomElements.define('select-submit', _selectSubmit__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {extends: 'select'})\n\n//# sourceURL=webpack://bachelors/./assets/elements/elements.js?");
+
+/***/ }),
+
+/***/ "./assets/elements/selectSubmit.js":
+/*!*****************************************!*\
+  !*** ./assets/elements/selectSubmit.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ SelectSubmit)\n/* harmony export */ });\n//ELEMENT personnalisé pour envoyer automatiquement dans le parms d'url la valeur du select selectionner\r\nclass SelectSubmit extends HTMLSelectElement{\r\n    constructor(){\r\n        super();\r\n    }\r\n\r\n    connectedCallback(){\r\n        this.addEventListener('change', this.sendRequest.bind(this))\r\n    }\r\n\r\n    sendRequest(e){\r\n        let params = new URLSearchParams(window.location.search)\r\n        let select = e.target\r\n        let name_attr = select.getAttribute('name')\r\n        let value = select.options[select.selectedIndex].value\r\n\r\n        if(value == ''){\r\n            params.delete(name_attr)\r\n        }else{\r\n            params.set(name_attr, value)\r\n        }\r\n        window.location.replace(`${window.location.pathname}?${params}`)\r\n    }\r\n\r\n}\n\n//# sourceURL=webpack://bachelors/./assets/elements/selectSubmit.js?");
 
 /***/ }),
 
