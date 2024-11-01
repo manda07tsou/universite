@@ -19,6 +19,10 @@ export default class SelectSubmit extends HTMLSelectElement{
         }else{
             params.set(name_attr, value)
         }
+
+        if(params.has('page')){
+            params.delete('page')
+        }
         window.location.replace(`${window.location.pathname}?${params}`)
     }
 

@@ -1,0 +1,44 @@
+{# default Sliding pagination control implementation #}
+{% if pageCount > 1 %}
+    <div class="pagination">
+        {% if previous is defined %}
+            <span class="previous">
+                <a rel="prev" href="{{ path(route, knp_pagination_query(query, previous)) }}">&laquo;</a>
+            </span>
+        {% else %}
+            <span class="disabled">&laquo;</span>
+        {% endif %}
+
+        {% if first is defined and first not in pagesInRange %}
+            <span class="first">
+                <a href="{{ path(route, knp_pagination_query(query, first)) }}">{{ first }}</a>
+            </span>
+            <span> . . . </span>
+        {% endif %}
+
+        {% for page in pagesInRange %}
+            {% if page != current %}
+                <span class="page">
+                    <a href="{{ path(route, knp_pagination_query(query, page)) }}">{{ page }}</a>
+                </span>
+            {% else %}
+                <span class="current">{{ page }}</span>
+            {% endif %}
+        {% endfor %}
+
+        {% if last is defined and last not in pagesInRange %}
+            <span>. . .</span>
+            <span class="last">
+                <a href="{{ path(route, knp_pagination_query(query, last)) }}">{{ last }}</a>
+            </span>
+        {% endif %}
+
+        {% if next is defined %}
+            <span class="next">
+                <a rel="next" href="{{ path(route, knp_pagination_query(query, next)) }}">&raquo;</a>
+            </span>
+        {% else %}
+            <span class="disabled">&raquo;</span>
+        {% endif %}
+    </div>
+{% endif %}

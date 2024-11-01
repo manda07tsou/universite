@@ -17,7 +17,7 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $etabs = ['UPH','ITU','IESTIME','ISIME','HEI','IST','E-MEDIA','UPRIM','IS-INFO','ESTIIM','ISFPS', 'ONIFRA'];
+        $etabs = ['UPH','ITU','IESTIME','ISIME','HEI','IST','E-MEDIA','UPRIM','IS-INFO','ESTIIM','ISFPS', 'ONIFRA','ISPM','UCM','ACCEEM'];
         $provinces = ['Antananarivo','Toamasina','Antsiranana','Mahajanga','Toliara'];
         $filieres = ['Informatique', 'Gestion', 'Economie', 'BTP', 'Agronomie'];
         $parcours = [

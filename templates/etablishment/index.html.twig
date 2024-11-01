@@ -47,9 +47,9 @@
                         </div>
                     </div>
                 </div>
-                <h2 class="text-secondary">Resultats :</h2>
+                <h2 class="text-secondary">Resultats : {{ etablishments.getTotalItemCount }}</h2>
             {% else %}
-                <h2 class="text-primary">Liste des etablissements</h2>
+                <h2 class="text-secondary">Liste des etablissements</h2>
             {% endif %}
 
         </div>
@@ -57,6 +57,9 @@
             {% for etab in etablishments %}
                 {% include "etablishment/_card.html.twig" %}
             {% endfor %}
+        </div>
+        <div class="text-center mt-5">
+            {{ knp_pagination_render(etablishments)}}
         </div>
     </div>
 

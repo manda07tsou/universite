@@ -17,14 +17,17 @@ class EtablishmentsRepository extends ServiceEntityRepository
         parent::__construct($registry, Etablishments::class);
     }
 
+    public function queryAll(){
+        return $this->createQueryBuilder('e')
+            ->getQuery();
+    }
 
-    public function findByFiliere(Filieres $filiere){
+    public function queryAllByFiliere(Filieres $filiere){
         return $this->createQueryBuilder('e')
             ->join('\App\Entity\Formations', 'f', 'WITH', 'f.etablishment = e.id')
             ->join('\App\Entity\Departments','d', 'WITH', 'd.formation = f.id')
             ->where('d.filiere = :filiere')
             ->setParameter('filiere', $filiere->getId())
-            ->getQuery()
-            ->getResult();
+            ->getQuery();
     }
 }

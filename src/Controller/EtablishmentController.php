@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Etablishments;
 use App\Repository\EtablishmentsRepository;
 use App\Repository\FilieresRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -18,6 +19,7 @@ class EtablishmentController extends AbstractController
     public function index(
         EtablishmentsRepository $er,
         FilieresRepository $fr,
+        PaginatorInterface $paginator,
         Request $request
     ): Response
     {
@@ -31,12 +33,18 @@ class EtablishmentController extends AbstractController
             if(null == $filiere){
                 throw new NotFoundHttpException();
             }
-            $etablishments = $er->findByFiliere($filiere);
+            $etablishments = $er->queryAllByFiliere($filiere);
             $filters['filiere'] = $filiere->getFiliere();
         }else{
-            $etablishments = $er->findAll();
+            $etablishments = $er->queryAll();
         }
 
+        $etablishments = $paginator->paginate(
+            $etablishments,
+            $request->query->getInt('page', 1),
+            12
+        );
+        
         return $this->render('etablishment/index.html.twig', [
             'page' => 'etablishment',
             'etablishments' => $etablishments,
