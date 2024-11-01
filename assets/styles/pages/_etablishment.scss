@@ -6,6 +6,10 @@
     padding-top: space(4);
     padding-bottom: space(4);
     border-bottom: 1px solid var(--border);
+
+    .form-select, .form-control{
+        background-color: var(--bg);
+    }
 }
 
 .filiere-filter{
@@ -17,7 +21,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     row-gap: space(3);
-    padding: space(2) 0px space(4) 0px;
+    padding: space(4) 0px;
     
     @include up(720px){
         grid-template-columns: 1fr 1fr;
@@ -51,6 +55,10 @@
 }
 
 @include up(900px){
+    .etablishment__header{
+        padding-top: space(6);
+        padding-bottom: space(6);
+    }
     .etablishment__search-form{
         width: 450px;
     }

@@ -45,6 +45,11 @@
     @extend %btn;
 }
 
+.btn-secondary{
+    @extend %btn;
+    @extend %bg-secondary;
+}
+
 .btn-primary-outlined{
     @extend %btn;
     color: var(--primary);

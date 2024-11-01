@@ -12,29 +12,34 @@
     background-color: gainsboro;
     color: rgb(26, 26, 26);
 }
+
 .badge-primary{
-    @extend %bg-primary;
     @extend %badge;
+    background-color: rgba(104, 190, 243, 0.3);
+    color: rgb(6, 109, 226);
 }
 
 .badge-secondary{
-    @extend %bg-secondary;
     @extend %badge;
+    background-color: rgba(230, 172, 0, .3);
+    color:  #e69600;
 }
 
 .badge-tierciary{
-    background-color: gray;
-    color: var(--secondary-inversed);
+    background-color: rgba(189, 189, 189, 0.3);
+    color: rgb(100, 100, 100);
     @extend %badge;
 }
 
 .badge-success{
-    @extend %bg-success;
     @extend %badge;
+    background-color: rgba(66, 201, 167, .3);
+    color: rgb(0, 128, 68);
 }
 
 .badge-danger{
-    @extend %bg-danger;
+    background-color: rgba(243, 133, 133, 0.3);
+    color: rgb(216, 80, 80);
     @extend %badge;
 }
 

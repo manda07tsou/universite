@@ -5,8 +5,7 @@
 {% block body %}
     <div class="etablishment__header container">
         <div class="filiere-filter">
-            <div class="form-flex">
-                <label for="#">Filières :</label>
+            <div>
                 <select name="filiere" is="select-submit" id="" data-link="/" class="form-select">
                     {% if filters.filiere is defined %}
                         <option value="">Toutes les filiere</option>
@@ -23,11 +22,11 @@
             </div>
         </div>
         <form action="#" class="form-btn-inside etablishment__search-form">
-            <input type="text" class="form-control" placeholder="rechercher etablissements">
+            <input type="text" class="form-control" placeholder="Chercher etablissements">
             <button class="btn-inside"><i class="bi bi-search"></i></button>
         </form>
         <div class="dropdown">
-            <a href="#" class="btn bordered">Filtrer: <i class="bi bi-filter-square icon-right"></i></a>
+            <a href="#" class="btn-secondary bordered"><i class="bi bi-filter-square"></i>Filtrer</a>
         </div>
     </div>
 
@@ -38,7 +37,7 @@
                     <div class="filter-box-content">
                         <div class="flex space-between">
                             <div class="text-strong">Filtrer par : </div>
-                            <a href="{{ path('etablishment_home')}}" class="btn-primary btn-small">Réinitialiser</a>
+                            <a href="{{ path('etablishment_home')}}" class="underlined"><i class="bi bi-arrow-counterclockwise icon"></i>Réinitialiser</a>
                         </div>
                         <div>
                                 {% for key, filter in filters %}
@@ -49,7 +48,7 @@
                 </div>
                 <h2>Resultat{{etablishments.getTotalItemCount > 1 ? 's' : '' }} : {{ etablishments.getTotalItemCount }}</h2>
             {% else %}
-                <h2>Tous les etablissements</h2>
+                <h2>Tous les établissements</h2>
             {% endif %}
 
         </div>

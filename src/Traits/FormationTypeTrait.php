@@ -17,7 +17,7 @@ trait FormationTypeTrait{
     ];
 
     protected static array $formationTypeColor = [
-        0 => 'primary',
+        0 => 'success',
         1 => 'secondary',
         2 => 'tierciary'
     ];
