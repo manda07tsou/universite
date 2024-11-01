@@ -17,6 +17,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     row-gap: space(3);
+    padding: space(6) 0px;
     
     @include up(720px){
         grid-template-columns: 1fr 1fr;
@@ -27,6 +28,10 @@
             grid-column-end: 2;
             grid-row-start: 1;
         }
+    }
+
+    @include up(900px){
+        padding: space(8) 0px;
     }
 }
 

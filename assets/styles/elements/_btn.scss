@@ -40,10 +40,6 @@
     border: 1px solid var(--border); 
 }
 
-.btn{
-    border: 1px solid var(--border);
-}
-
 .btn-primary{
     @extend %bg-primary;
     @extend %btn;

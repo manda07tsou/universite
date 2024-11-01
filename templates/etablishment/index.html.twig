@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <div class="container mt-5">
+    <div class="container">
         <div class="etablissement__listing-header">
             {% if filters %}
                 <div class="filter-box">
@@ -47,13 +47,13 @@
                         </div>
                     </div>
                 </div>
-                <h2 class="text-secondary">Resultats : {{ etablishments.getTotalItemCount }}</h2>
+                <h2>Resultats : {{ etablishments.getTotalItemCount }}</h2>
             {% else %}
-                <h2 class="text-secondary">Liste des etablissements</h2>
+                <h2>Tous les etablissements</h2>
             {% endif %}
 
         </div>
-        <div class="grid__auto-fill mt-5" style="--min-column: 250px; --gap: 20px">
+        <div class="grid__auto-fill" style="--min-column: 250px; --gap: 20px">
             {% for etab in etablishments %}
                 {% include "etablishment/_card.html.twig" %}
             {% endfor %}
