@@ -20,13 +20,39 @@
         <header class="header" id="header">
             <div class="header-logo"><i class="bi bi-layers icon"></i>Université.mada</div>
             <nav class="header-nav">
-                <a href="{{ path('app_home')}}" class="header__nav-item {%if page == 'home' %} active {%endif%}"><i class="bi bi-window-dock icon"></i>Accueil</a>
-                <a href="{{ path('etablishment_home')}}" class="header__nav-item {%if page == 'etablishment' %} active {%endif%}"><i class="bi bi-layers icon"></i>Etablissements</a></li>
-                <a href="#" class="header__nav-item {%if page == 'inscription' %} active {%endif%}"><i class="bi bi-file-text icon"></i>Comment s'inscrire?</a></li>
-                <span class="header__nav-item"><a href="#" class="">Connexion</a></span>
+                <a href="{{ path('app_home')}}" class="header__nav-item {% if page == 'home' %} active {% endif %}"><i class="bi bi-window-dock icon"></i>Accueil</a>
+                <a href="{{ path('etablishment_home')}}" class="header__nav-item {% if page == 'etablishment' %} active {% endif %}"><i class="bi bi-layers icon"></i>Etablissements</a>
+                <a href="#" class="header__nav-item {% if page == 'registration' %} active {% endif %}"><i class="bi bi-card-list icon"></i>Comment s'inscrire?</a>
+                <a href="#" class="header__nav-item {% if page == 'login' %} active {% endif %}"><i class="bi bi-box-arrow-in-right icon"></i>Connexion</a>
             </nav>
             <burger-menu class="burger" parent= "#header"></burger-menu>
         </header>
+
         {% block body %}{% endblock %}
+
+        <footer class="footer">
+            <div>
+                <h4 class="text-primary"><i class="bi bi-layers icon"></i>Université.mada</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut explicabo quas excepturi rerum ut, esse harum repellat consequatur?</p>
+                <span class="text-secondary">*<a href="#" class="underlined">Lire nos condition d'utilisation</a></span>
+            </div>
+            <div>
+                <h4 class="text-primary">Lien du site</h4>
+                <ul>
+                    <li><a href="#" class="link"><i class="bi bi-window-dock icon"></i>Accueil</a></li>
+                    <li><a href="#" class="link"><i class="bi bi-layers icon"></i>Etablissements</a></li>
+                    <li><a href="#" class="link"><i class="bi bi-card-list icon"></i>Inscription</a></li>
+                    <li><a href="#"><i class="bi bi-box-arrow-in-right icon"></i>Connexion</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-primary">Nous contacter</h4>
+                <ul>
+                    <li><i class="bi bi-telephone icon"></i>+261 38 71 697 95</li>
+                    <li><i class="bi bi-envelope icon"></i>rhjmanda@gmail.com</li>
+                    <li><i class="bi bi-facebook icon"></i>Manda</li>
+                </ul>
+            </div>
+        </footer>
     </body>
 </html>

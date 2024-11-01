@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <h2>Resultats : {{ etablishments.getTotalItemCount }}</h2>
+                <h2>Resultat{{etablishments.getTotalItemCount > 1 ? 's' : '' }} : {{ etablishments.getTotalItemCount }}</h2>
             {% else %}
                 <h2>Tous les etablissements</h2>
             {% endif %}

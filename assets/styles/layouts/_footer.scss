@@ -1,0 +1,38 @@
+.footer{
+    @extend %container;
+    background-color: rgb(56, 56, 56);
+    color: rgb(221, 217, 217);
+    padding-top: space(4);
+    padding-bottom: space(4);
+    margin-top: space(10);
+}
+
+.footer>div{
+    margin-bottom: space(6);
+
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+
+.footer h4{
+    margin-bottom: space(1);
+}
+
+.footer li{
+    list-style: none;
+}
+
+@include up(900px){
+    .footer{
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: space(5);
+        padding-top: space(6);
+        padding-bottom: space(7);
+    }
+
+    .footer>div{
+        margin-bottom: 0;
+    }
+}
