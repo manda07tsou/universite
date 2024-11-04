@@ -1,16 +1,18 @@
 <div class="card card__etablishment">
     <a href="{{ path('etablishment_show', {'name': etab.name, 'id':etab.id})}}" class="card-link" title="Cliquer pour plus d'information"></a>
 
-    <div class="card-header etablishment__meta">
-        <img src="/images/logo_etablishment.jpg" class="avatar" alt="logo" src=""/>
-        <div>
-            <div class="etablishment-name">{{ etab.name }}</div>
-            <div class="etablishment-name-def">Université Privée Hay</div>
+    <div class="card-header">
+        <div class="etablishment__meta">
+            <img src="/images/logo_etablishment.jpg" class="avatar" alt="logo" src=""/>
+            <div>
+                <div class="etablishment-name">{{ etab.name }}</div>
+                <div class="etablishment-name-def">Université Privée Hay</div>
+            </div>
         </div>
     </div>
     <div class="card-body">
-        <div>
-            <p class="text-strong mr-1">Formation</p>
+        <div class="">
+            <span class="text-strong">Formation</span>
             <ul>
                 {% for key, type_formation in etab.formations.formation_types %}
                     <li class="badge-{{ etab.formations.getFormationTypeColor(key) }}">{{ type_formation }}</li>

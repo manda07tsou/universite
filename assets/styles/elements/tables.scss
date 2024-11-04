@@ -1,0 +1,42 @@
+.table{
+    display: table;
+    width:100%;
+    line-height: 1.4;
+    border-collapse: collapse;
+    text-wrap: wrap;
+}
+
+.table thead{
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: .9em;
+}
+
+.table tr{
+    border-bottom:1px solid var(--border);
+}
+
+.table thead{
+    border-top: 1px solid var(--border);
+}
+
+.table tr td, .table tr th{
+    padding: space(2);
+    text-wrap:wrap;
+    font-size: .95em;
+    word-wrap: break-word!important;
+}
+
+.table-bordered{
+    border: 1px solid var(--border);
+
+    tr td, th{
+        border: 1px solid var(--border);
+    }
+}
+
+.table-action{
+    padding: .3em;
+    border-radius: 3px;
+}

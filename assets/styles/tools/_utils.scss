@@ -57,6 +57,10 @@
     color: var(--secondary);
 }
 
+.text-muted{
+    opacity: .7;
+}
+
 //text size
 .text-small{
     font-size: .87em;
@@ -65,11 +69,20 @@
 
 .text-strong{
     font-weight: bold;
+    font-family: 'Inter-regular';
 }
 
 //text alignment
 .text-center {
     text-align: center;
+}
+
+.link{
+    transition:filter .2s;
+
+    &:hover{
+        filter:brightness(.6);
+    }
 }
 
 .icon{

@@ -18,14 +18,18 @@
         border-bottom: 1px solid var(--border);
     }
 
-    .institution-name{
-        font-size: 2em;
-        color: var(--color);
+    .etablishment-name{
+        line-height: 1.2em;
+        font-size: 2.2em;
     }
 
-    .institution-name-def{
-        font-size: 1em;
+    .etablishment-name-def{
+        font-size: 1.1em;
     }
+}
+
+.slogan{
+    display: none;
 }
 
 .profil__nav{
@@ -39,18 +43,84 @@
     }
 }
 
+.profil__body{
+    @extend %container;
+    margin-top: space(3);
+}
+
+.profil__sidebar{
+    display: none;
+}
+
+.profil__info{
+    margin-bottom: space(5);
+}
+
+.profil__info-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: space(1.5);
+
+    .btn{
+        background-color: white;
+    }
+}
+
+.profil__box{
+    background-color: var(--bg-light);
+    padding: space(3) space(2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+@include down(720px){
+    table.formation__table tr td:last-child, table.formation__table thead th:last-child{
+        display: none;
+    }
+}
+
 @include up(900px){
     .profil__header{
         padding-top: space(6);
         padding-bottom: space(6);
 
-        .institution-name{
-            font-size: 4em;
+        .etablishment-name{
+            font-size: 3.2em;
             line-height: 1.2 ;
         }
 
-        .institution-name-def{
-            font-size: 1.4em;
+        .etablishment-name-def{
+            font-size: 1.3em;
         }
+    }
+
+    .profil__body{
+        display: grid;
+        grid-template-columns: 5fr 3fr;
+        margin-top: space(4);
+    }
+
+    .profil__sidebar{
+        display: block;
+        margin-left: space(6);
+        height: min-content;
+    }
+
+    .actu__card{
+        background-color: var(--bg-light);
+        padding: space(2) space(4);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+    }
+
+    .slogan{
+        display: inline-block;
+        background-color: rgba(66, 201, 167, .2);
+        color: rgb(13, 204, 115);
+        font-size: 2em;
+        margin: auto;
+        padding: space(3) space(5);
+        border-radius: 5px;
     }
 }

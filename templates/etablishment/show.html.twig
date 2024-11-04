@@ -4,22 +4,147 @@
 
 {% block body %}
     <div class="profil__header">
-        <div class="etablishment__meta">
-            <img src="" class="avatar avatar-large" alt="">
-            <div>
-                <div class="etablishment-name">{{ etablishment.name }} </div>
-                <p class="etablishment-name-def">Université Privée Hay</p>
+        <div>
+            <div class="etablishment__meta">
+                <img src="/images/logo_etablishment.jpg" class="avatar avatar-large" alt="">
+                <div>
+                    <div class="etablishment-name">{{ etablishment.name }} </div>
+                    <p class="etablishment-name-def">Université Privée Hay</p>
+                </div>
             </div>
+            <div class="mt-4">
+                <span class="badge-secondary">Réconnu par la FOP</span>
+                <span class="badge-secondary">Habilitée par l'état</span>
+            </div>
+        </div>
+        <div class="slogan">
+            " Excellence, Heritage, Existances "
         </div>
     </div>
 
     <div class="profil__nav">
         <div class="nav-sticky">
             <a href="" class="nav-item active"><i class="bi bi-card-text icon"></i>Généralités</a>
-            <a href="#" class="nav-item"><i class="bi bi-card-text icon"></i>Nos formations</a>
-            <a href="#" class="nav-item"><i class="bi bi-card-text icon"></i>A propos</a>
-            <a href="#" class="nav-item"><i class="bi bi-card-text icon"></i>Nos coordonnées</a>
-            <a href="#" class="nav-item"><i class="bi bi-card-text icon"></i>actualités</a>
+            <a href="#" class="nav-item"><i class="bi bi-layers icon icon"></i>Nos formations</a>
+            <a href="#" class="nav-item"><i class="bi bi-journal-bookmark icon"></i>A propos</a>
+            <a href="#" class="nav-item"><i class="bi bi-map icon"></i>Nos coordonnées</a>
+            <a href="#" class="nav-item"><i class="bi bi-megaphone icon"></i>actualités</a>
+        </div>
+    </div>
+
+    <div class="profil__body">
+        <div>
+            <div class="profil__info">
+                <div class="profil__info-header">
+                    <h4><i class="bi bi-layers icon"></i>Nos formations</h4>
+                    <a href="#" class="btn btn-small">Voir plus</a>
+                </div>
+                <div class="profil__box">
+                    <div class="text-strong">Formations proposé :</div>
+                    <ul>
+                        {% for key, type_formation in etablishment.formations.formation_types %}
+                            <li class="badge-{{ etablishment.formations.getFormationTypeColor(key) }}">{{ type_formation }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="mt-2 mb-2"><span class="text-strong">Condition d'admission : </span><br>Concours, Sélection de dossier</div>
+                    <table class="table table-bordered formation__table">
+                        <thead>
+                            <th>Filières</th>
+                            <th>Parcours</th>
+                            <th>Diplomes réquis</th>
+                        </thead>
+                        <tbody>
+                            {% set departments = etablishment.formations.departments %}
+                            {% for department in departments %}
+                                <tr>
+                                    <td><a href="./formation.html#communication">{{ department.filiere.filiere }}</a></td>
+                                    <td>
+                                        <ul class="list">
+                                            {% for parcour in department.parcours %}
+                                                <li>{{ parcour.parcour }}
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <span class="badge-tierciary">Bacc toutes series</span>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    
+            <div class="profil__info">
+                <div class="profil__info-header">
+                    <h4><i class="bi bi-journal-bookmark icon"></i>A propos de nous</h4>
+                    <a href="#" class="btn btn-small">Voir plus</a>
+                </div>
+                <div class="profil__box">
+                    <p>{{ etablishment.about}}..</p>
+                </div>
+            </div>
+
+            <div class="profil__info">
+                <div class="profil__info-header">
+                    <h4><i class="bi bi-map icon"></i>Nos coordonnées</h4>
+                    <a href="#" class="btn btn-small">Voir plus</a>
+                </div>
+                <div class="profil__box">
+                    <h5>Contact</h5>
+                    <table class="table mt-2">
+                        <tbody>
+                            <tr></tr>
+                            <tr>
+                                <td class="text-primary"><i class="bi bi-telephone-plus icon"></i>Téléphones</td>
+                                <td>
+                                    <ul>
+                                        <li>+ 261 34 28 697 95</li>
+                                        <li>+ 261 33 28 697 95</li>
+                                        <li>+ 261 32 28 697 95</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-primary"><i class="bi bi-envelope icon"></i>Email</td>
+                                <td>etablishment@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td class="text-primary"><i class="bi bi-globe icon"></i>Siteweb</td>
+                                <td>https://etablishment.com</td>
+                            </tr>
+                            <tr>
+                                <td class="text-primary"><i class="bi bi-facebook icon"></i>Facebook</td>
+                                <td>Université privée hay</td>
+                            </tr>
+                            <tr>
+                                <td class="text-primary"><i class="bi bi-telephone icon"></i>Whatsapp</td>
+                                <td>+ 261 32 28 697 95</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="profil__sidebar">
+            <div class="profil__info-header">
+                <h4>Dérnières actualités</h4>
+            </div>
+
+            <div class="actu__card">
+                <div class="card-title">La réntrée universitaire 2024 - 2025</div>
+                <p class="text-muted">Publié le : 04/11/2024</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae adipisci cupiditate distinctio placeat eius officia quasi, praesentium ipsa nam iure rem...</p>
+                <a href="#" class="text-primary link">Lire la suite</a>
+            </div>
+            
+            <div class="actu__card mt-3">
+                <div class="card-title">La réntrée 2024 - 2025</div>
+                <p class="text-muted">Publié le : 04/11/2024</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae adipisci cupiditate distinctio placeat eius officia quasi, praesentium ipsa nam...</p>
+                <a href="#" class="text-primary link">Lire la suite</a>
+            </div>
         </div>
     </div>
 {% endblock %}
