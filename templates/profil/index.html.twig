@@ -3,35 +3,7 @@
 {% block title %}Etablissement profil{% endblock %}
 
 {% block body %}
-    <div class="profil__header">
-        <div>
-            <div class="etablishment__meta">
-                <img src="/images/logo_etablishment.jpg" class="avatar avatar-large" alt="">
-                <div>
-                    <div class="etablishment-name">{{ etablishment.name }} </div>
-                    <p class="etablishment-name-def">Université Privée Hay</p>
-                </div>
-            </div>
-            <div class="mt-4">
-                <span class="badge-secondary">Réconnu par la FOP</span>
-                <span class="badge-secondary">Habilitée par l'état</span>
-            </div>
-        </div>
-        <div class="slogan">
-            " Excellence, Heritage, Existances "
-        </div>
-    </div>
-
-    <div class="profil__nav">
-        <div class="nav-sticky">
-            <a href="" class="nav-item active"><i class="bi bi-card-text icon"></i>Généralités</a>
-            <a href="#" class="nav-item"><i class="bi bi-layers icon icon"></i>Nos formations</a>
-            <a href="#" class="nav-item"><i class="bi bi-journal-bookmark icon"></i>A propos</a>
-            <a href="#" class="nav-item"><i class="bi bi-map icon"></i>Nos coordonnées</a>
-            <a href="#" class="nav-item"><i class="bi bi-megaphone icon"></i>actualités</a>
-        </div>
-    </div>
-
+    {% include "profil/_profil_header.html.twig" %}
     <div class="profil__body">
         <div>
             <div class="profil__info">

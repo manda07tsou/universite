@@ -53,14 +53,4 @@ class EtablishmentController extends AbstractController
             'filters' => $filters
         ]);
     }
-
-    #[Route('/{name}/{id<\d+>}', name: 'etablishment_show')]
-    public function show(
-        Etablishments $etablishment
-    ){
-        return $this->render('etablishment/show.html.twig', [
-            'page' => 'etablishment',
-            'etablishment' => $etablishment
-        ]);
-    }
 }
