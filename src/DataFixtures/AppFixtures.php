@@ -106,8 +106,8 @@ class AppFixtures extends Fixture
                 array_push($fil_index_lists, $fil_index);
 
                 $department = new Departments();
-                $department->setDiplomaDelivered('dts/licences/master')
-                    ->setDiplomaRequired('Bacc S/Bacc OSE/Bacc Technique')
+                $department->setDiplomaDelivered('0/1/2')
+                    ->setDiplomaRequired('3/4/5')
                     ->setFormation($f)
                     ->setFiliere($fil_list[$fil_index]);
                 
