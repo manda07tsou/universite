@@ -4,6 +4,7 @@
 
 {% block body %}
     {% include "profil/_profil_header.html.twig" %}
+
     <div class="profil__body">
         <div>
             <div class="profil__info">
@@ -73,28 +74,43 @@
                                 <td class="text-primary"><i class="bi bi-telephone-plus icon"></i>Téléphones</td>
                                 <td>
                                     <ul>
-                                        <li>+ 261 34 28 697 95</li>
-                                        <li>+ 261 33 28 697 95</li>
-                                        <li>+ 261 32 28 697 95</li>
+                                        <li>{{ contact.phone1 }}</li>
+                                        {% if contact.phone2 %}
+                                            <li>{{ contact.phone2 }}</li>
+                                        {% endif %}
+                                        {% if contact.phone3 %}
+                                            <li>{{ contact.phone3 }}</li>
+                                        {% endif %}
                                     </ul>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="text-primary"><i class="bi bi-envelope icon"></i>Email</td>
-                                <td>etablishment@gmail.com</td>
-                            </tr>
-                            <tr>
-                                <td class="text-primary"><i class="bi bi-globe icon"></i>Siteweb</td>
-                                <td>https://etablishment.com</td>
-                            </tr>
-                            <tr>
-                                <td class="text-primary"><i class="bi bi-facebook icon"></i>Facebook</td>
-                                <td>Université privée hay</td>
-                            </tr>
-                            <tr>
-                                <td class="text-primary"><i class="bi bi-telephone icon"></i>Whatsapp</td>
-                                <td>+ 261 32 28 697 95</td>
-                            </tr>
+                            {% if contact.email %}
+                                <tr>
+                                    <td class="text-primary"><i class="bi bi-envelope icon"></i>Email</td>
+                                    <td>{{ contact.email }}</td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if contact.website %}
+                                <tr>
+                                    <td class="text-primary"><i class="bi bi-globe icon"></i>Siteweb</td>
+                                    <td>https://etablishment.com</td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if contact.facebook %}
+                                <tr>
+                                    <td class="text-primary"><i class="bi bi-facebook icon"></i>Facebook</td>
+                                    <td>Université privée hay</td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if contact.whatsapp %}
+                                <tr>
+                                    <td class="text-primary"><i class="bi bi-telephone icon"></i>Whatsapp</td>
+                                    <td>+ 261 32 28 697 95</td>
+                                </tr>
+                            {% endif %}
                         </tbody>
                     </table>
                 </div>

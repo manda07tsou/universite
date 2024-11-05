@@ -44,6 +44,7 @@ class EtablishmentController extends AbstractController
             $request->query->getInt('page', 1),
             12
         );
+        dump($etablishments);
         
         return $this->render('etablishment/index.html.twig', [
             'page' => 'etablishment',
