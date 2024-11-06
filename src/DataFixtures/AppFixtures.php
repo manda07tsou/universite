@@ -47,10 +47,13 @@ class AppFixtures extends Fixture
                     ->setUser($user);
     
             //create ADRESSES
-            $adresse = new Adresses();
-            $adresse->setAdress('adresse '.$etablishment->getName())
-                ->setProvince($provinces[rand(0 , count($provinces) - 1)])
-                ->setEtablishment($etablishment);
+            for ($m=0; $m < rand(1, 5) ; $m++) { 
+                $adresse = new Adresses();
+                $adresse->setAdress('adresse '.$etablishment->getName())
+                    ->setProvince($provinces[$m])
+                    ->setEtablishment($etablishment);
+                $manager->persist($adresse);
+            }
 
             //create CONTACTS
             $contact = new Contacts();
@@ -74,7 +77,6 @@ class AppFixtures extends Fixture
 
             $manager->persist($user);
             $manager->persist($etablishment);
-            $manager->persist($adresse);
             $manager->persist($contact);
             $manager->persist($formation);
         }

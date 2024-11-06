@@ -1,0 +1,97 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Coordonner{% endblock %}
+
+{% block body %}
+    {{ include('profil/_profil_header.html.twig', {submenu:'coordinate'}) }}
+
+    <div class="profil__body">
+        <div>
+            <div class="profil__info">
+                <div class="profil__info-header">
+                    <h4><i class="bi bi-geo-alt icon"></i>Notre adresses</h4>
+                </div>
+                <div class="profil__box">
+                    <div class="grid-2" style="gap: 10px">
+                        {% for adresse in etablishment.adresses %}
+                            <div class="profil__adress-card">
+                                <p><i class="bi bi-geo-alt icon"></i>{{ adresse.adress ~' , '~ adresse.province }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="profil__info">
+                <div class="profil__info-header">
+                    <h4><i class="bi bi-telephone icon"></i>Nos contacts</h4>
+                </div>
+                <div class="profil__box">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td class="text-primary"><i class="bi bi-telephone-plus icon"></i>Téléphones</td>
+                                <td>
+                                    <ul>
+                                        <li>{{ contact.phone1 }}</li>
+                                        {% if contact.phone2 %}
+                                            <li>{{ contact.phone2 }}</li>
+                                        {% endif %}
+                                        {% if contact.phone3 %}
+                                            <li>{{ contact.phone3 }}</li>
+                                        {% endif %}
+                                    </ul>
+                                </td>
+                            </tr>
+                            {% if contact.email %}
+                                <tr>
+                                    <td class="text-primary"><i class="bi bi-envelope icon"></i>Email</td>
+                                    <td>{{ contact.email }}</td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if contact.website %}
+                                <tr>
+                                    <td class="text-primary"><i class="bi bi-globe icon"></i>Siteweb</td>
+                                    <td>https://etablishment.com</td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if contact.facebook %}
+                                <tr>
+                                    <td class="text-primary"><i class="bi bi-facebook icon"></i>Facebook</td>
+                                    <td>Université privée hay</td>
+                                </tr>
+                            {% endif %}
+                            
+                            {% if contact.whatsapp %}
+                                <tr>
+                                    <td class="text-primary"><i class="bi bi-telephone icon"></i>Whatsapp</td>
+                                    <td>+ 261 32 28 697 95</td>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="profil__sidebar">
+            <div class="profil__info-header">
+                <h4><i class="bi bi-megaphone icon"></i>Dérnières actualités</h4>
+            </div>
+
+            <div class="actu__card">
+                <div class="card-title">La réntrée universitaire 2024 - 2025</div>
+                <p class="text-muted">Publié le : 04/11/2024</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae adipisci cupiditate distinctio placeat eius officia quasi, praesentium ipsa nam iure rem...</p>
+                <a href="#" class="text-primary link">Lire la suite</a>
+            </div>
+            
+            <div class="actu__card mt-3">
+                <div class="card-title">La réntrée 2024 - 2025</div>
+                <p class="text-muted">Publié le : 04/11/2024</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae adipisci cupiditate distinctio placeat eius officia quasi, praesentium ipsa nam...</p>
+                <a href="#" class="text-primary link">Lire la suite</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

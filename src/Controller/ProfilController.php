@@ -36,4 +36,17 @@ class ProfilController extends AbstractController
             'etablishment' => $etablishment
         ]);
     }
+
+    #[Route('/coordonner/{id<\d+>}', name: 'profil_show_coordinate')]
+    public function show_coordinate(
+        Etablishments $etablishment,
+        ContactsRepository $cr
+    ){
+
+        return $this->render('profil/coordinate.html.twig', [
+            'page' => 'etablishment',
+            'etablishment' => $etablishment,
+            'contact' => $cr->findOneBy(['etablishment' => $etablishment->getId()])
+        ]);
+    }
 }

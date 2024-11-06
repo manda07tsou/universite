@@ -36,3 +36,12 @@
     gap: var(--gap);
     grid-auto-flow: dense;
 }
+
+.grid-2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include down(720px){
+        grid-template-columns: 1fr;
+    }
+}

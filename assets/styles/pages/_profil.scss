@@ -82,6 +82,13 @@
     border-radius: 4px;
 }
 
+.profil__adress-card{
+    background-color: var(--bg);
+    color: var(--primary);
+    padding: space(2);
+    border-radius: 4px;
+}
+
 @include down(720px){
     table.formation__table tr td:last-child, table.formation__table thead th:last-child{
         display: none;

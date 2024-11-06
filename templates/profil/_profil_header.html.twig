@@ -21,8 +21,8 @@
     <div class="nav-sticky">
         <a href="{{ path('profil_index', {id: etablishment.id})}}" class="nav-item {% if submenu == 'generalite' %}active{% endif %}"><i class="bi bi-card-text icon"></i>Généralités</a>
         <a href="{{ path('profil_show_formation', {id: etablishment.id}) }}" class="nav-item {% if submenu == 'formation' %}active{% endif %}"><i class="bi bi-layers icon icon"></i>Nos formations</a>
-        <a href="#" class="nav-item"><i class="bi bi-journal-bookmark icon"></i>A propos</a>
-        <a href="#" class="nav-item"><i class="bi bi-map icon"></i>Nos coordonnées</a>
+        <a href="{{ path('profil_show_coordinate', {id: etablishment.id})}}" class="nav-item {% if submenu == 'coordinate' %}active{% endif %}"><i class="bi bi-map icon"></i>Nos coordonnées</a>
+        <a href="#" class="nav-item"><i class="bi bi-journal-bookmark  icon"></i>A propos</a>
         <a href="#" class="nav-item"><i class="bi bi-megaphone icon"></i>actualités</a>
     </div>
 </div>
