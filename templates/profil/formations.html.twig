@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Etablissement profil{% endblock %}
+
+{% block body %}
+    {{ include('profil/_profil_header.html.twig', {submenu:'formation'}) }}
+
+    <div class="profil__body">
+        <div>
+            <div class="profil__info">
+                <div class="profil__info-header">
+                    <h4><i class="bi bi-layers icon"></i>Nos formations</h4>
+                </div>
+                <div class="profil__box">
+                    <div class="text-strong">Formations proposé :</div>
+                    <ul>
+                        {% for key, type_formation in etablishment.formations.formation_types %}
+                            <li class="badge-{{ etablishment.formations.getFormationTypeColor(key) }}">{{ type_formation }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="mt-2 mb-2"><span class="text-strong">Condition d'admission : </span><br>Concours, Sélection de dossier</div>
+                </div>
+            </div>
+            <div class="profil__info">
+                <div class="profil__info-header">
+                    <h4><i class="bi bi-bookmark-plus icon"></i>Nos filieres</h4>
+                </div>
+                <div class="grid__auto-fill">
+                    {% set departments = etablishment.formations.departments %}
+                    {% for department in departments  %}
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-title text-primary">{{ department.filiere.filiere }}</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="text-strong">Parcours</div>
+                                <ul class="list">
+                                    {% for parcour in department.parcours %}
+                                        <li>{{ parcour.parcour }}
+                                    {% endfor %}
+                                </ul>
+
+                                <div class="text-strong mt-4">Diplome delivrée</div>
+                                <ul>
+                                    {% for diplomaDelivered in department.diplomaDelivered %}
+                                        <li class="badge-success">{{ department.diplomaDeliveredLists[diplomaDelivered] }}</li>
+                                    {% endfor %}
+                                </ul>
+
+                                <div class="text-strong mt-4">Diplome réquis (BACC)</div>
+                                <ul>
+                                    {% for index in department.diplomaRequired %}
+                                        <li class="badge-secondary">{{ department.diplomaRequiredLists[index] }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="profil__sidebar">
+            <div class="profil__info-header">
+                <h4><i class="bi bi-megaphone icon"></i>Dérnières actualités</h4>
+            </div>
+
+            <div class="actu__card">
+                <div class="card-title">La réntrée universitaire 2024 - 2025</div>
+                <p class="text-muted">Publié le : 04/11/2024</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae adipisci cupiditate distinctio placeat eius officia quasi, praesentium ipsa nam iure rem...</p>
+                <a href="#" class="text-primary link">Lire la suite</a>
+            </div>
+            
+            <div class="actu__card mt-3">
+                <div class="card-title">La réntrée 2024 - 2025</div>
+                <p class="text-muted">Publié le : 04/11/2024</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae adipisci cupiditate distinctio placeat eius officia quasi, praesentium ipsa nam...</p>
+                <a href="#" class="text-primary link">Lire la suite</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

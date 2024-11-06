@@ -3,14 +3,14 @@
 {% block title %}Etablissement profil{% endblock %}
 
 {% block body %}
-    {% include "profil/_profil_header.html.twig" %}
+    {{ include('profil/_profil_header.html.twig', {submenu: 'generalite'}) }}
 
     <div class="profil__body">
         <div>
             <div class="profil__info">
                 <div class="profil__info-header">
                     <h4><i class="bi bi-layers icon"></i>Nos formations</h4>
-                    <a href="#" class="btn btn-small">Voir plus</a>
+                    <a href="{{ path('profil_show_formation', {id: etablishment.id})}}" class="btn btn-small">Voir plus</a>
                 </div>
                 <div class="profil__box">
                     <div class="text-strong">Formations proposé :</div>
@@ -119,7 +119,7 @@
 
         <div class="profil__sidebar">
             <div class="profil__info-header">
-                <h4>Dérnières actualités</h4>
+                <h4><i class="bi bi-megaphone icon"></i>Dérnières actualités</h4>
             </div>
 
             <div class="actu__card">

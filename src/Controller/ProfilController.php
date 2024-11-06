@@ -8,9 +8,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[Route('/profil')]
 class ProfilController extends AbstractController
 {
-    #[Route('/profil/{id<\d+>}', name: 'profil_index')]
+    #[Route('/{id<\d+>}', name: 'profil_index')]
     public function index(
         Etablishments $etablishment,
         ContactsRepository $cr
@@ -22,6 +23,17 @@ class ProfilController extends AbstractController
             'page' => 'etablishment',
             'etablishment' => $etablishment,
             'contact' => $contact
+        ]);
+    }
+
+    #[Route('/formation/{id<\d+>}', name:'profil_show_formation')]
+    public function show_formation(
+        Etablishments $etablishment
+    ){
+
+        return $this->render('profil/formations.html.twig',[
+            'page' => 'etablishment',
+            'etablishment' => $etablishment
         ]);
     }
 }
