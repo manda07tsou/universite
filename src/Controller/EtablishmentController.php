@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Adresses;
 use App\Entity\Etablishments;
 use App\Repository\EtablishmentsRepository;
 use App\Repository\FilieresRepository;
@@ -24,23 +25,31 @@ class EtablishmentController extends AbstractController
     ): Response
     {
         $filterByFiliere = $request->query->get('filiere');
+        $filterByProvince = $request->query->get('province');
         $filiere = null;
-
+        $query = $er->queryAll();
         $filters = [];
 
+        //filtre par filiere
         if($filterByFiliere){
             $filiere = $fr->findOneBy(['id' => $filterByFiliere]);
             if(null == $filiere){
                 throw new NotFoundHttpException();
             }
-            $etablishments = $er->queryAllByFiliere($filiere);
+            $query = $query->where('d.filiere = :filiere')->setParameter('filiere', $filterByFiliere);
             $filters['filiere'] = $filiere->getFiliere();
-        }else{
-            $etablishments = $er->queryAll();
+        }
+
+        //filtre par provinces
+        if($filterByProvince){
+            $query = $query->join('\App\Entity\Adresses', 'a', 'WITH', 'a.etablishment = e.id')
+                ->andWhere('a.province = :province')
+                ->setParameter('province', $filterByProvince);
+            $filters['province'] = $filterByProvince;
         }
 
         $etablishments = $paginator->paginate(
-            $etablishments,
+            $query->getQuery(),
             $request->query->getInt('page', 1),
             12
         );
@@ -50,6 +59,7 @@ class EtablishmentController extends AbstractController
             'etablishments' => $etablishments,
             'filieres' => $fr->findAll(),
             'filiere_selected' => $filiere,
+            'provinces' => Adresses::$provinces,
             'filters' => $filters
         ]);
     }

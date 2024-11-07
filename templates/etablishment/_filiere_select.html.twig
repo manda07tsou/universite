@@ -1,15 +1,12 @@
 {% set selectSubmit = isSelectSubmit is defined ? 'is="select-submit"' : '' %}
 
 <select name="filiere" {{ selectSubmit|raw }} id="" class="form-select">
-    {% if filters.filiere is defined %}
-        <option value="">Toutes les filiere</option>
-        {% for filiere in filieres %}
-            <option value="{{ filiere.id }}" {{ filiere.id == filiere_selected.id ? 'selected' }}>{{ filiere.filiere }}</option>
-        {% endfor %}
-    {% else %}
-        <option value="" selected>Toutes les filiere</option>
-            {% for filiere in filieres %}
-            <option value="{{ filiere.id }}"}>{{ filiere.filiere }}</option>
-        {% endfor %}
-    {% endif %}
+    <option value="">Toutes les filiere</option>
+    {% for filiere in filieres %}
+        {% if filters.filiere is defined and filiere.id == filiere_selected.id %}
+            <option value="{{ filiere.id }}" selected>{{ filiere.filiere }}</option>
+        {% else %}
+            <option value="{{ filiere.id }}">{{ filiere.filiere }}</option>
+        {% endif %}
+    {% endfor %}
 </select>

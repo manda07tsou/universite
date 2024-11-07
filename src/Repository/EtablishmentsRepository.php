@@ -19,15 +19,7 @@ class EtablishmentsRepository extends ServiceEntityRepository
 
     public function queryAll(){
         return $this->createQueryBuilder('e')
-            ->getQuery();
-    }
-
-    public function queryAllByFiliere(Filieres $filiere){
-        return $this->createQueryBuilder('e')
             ->join('\App\Entity\Formations', 'f', 'WITH', 'f.etablishment = e.id')
-            ->join('\App\Entity\Departments','d', 'WITH', 'd.formation = f.id')
-            ->where('d.filiere = :filiere')
-            ->setParameter('filiere', $filiere->getId())
-            ->getQuery();
+            ->join('\App\Entity\Departments','d', 'WITH', 'd.formation = f.id');
     }
 }

@@ -19,6 +19,10 @@ class Adresses
     #[ORM\Column(length: 255)]
     private ?string $province = null;
 
+    public static $provinces = [
+        'Antananarivo', 'Fianarantsoa','Mahajanga','Toamasina','Antsiranana','Toliara'
+    ];
+
     #[ORM\ManyToOne(inversedBy: 'adresses')]
     #[ORM\JoinColumn(nullable: false)]
     private ?etablishments $etablishment = null;
