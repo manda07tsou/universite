@@ -5,29 +5,27 @@
 {% block body %}
     <div class="etablishment__header container">
         <div class="filiere-filter">
-            <div>
-                <select name="filiere" is="select-submit" id="" data-link="/" class="form-select">
-                    {% if filters.filiere is defined %}
-                        <option value="">Toutes les filiere</option>
-                        {% for filiere in filieres %}
-                            <option value="{{ filiere.id }}" {{ filiere.id == filiere_selected.id ? 'selected' }}>{{ filiere.filiere }}</option>
-                        {% endfor %}
-                    {% else %}
-                        <option value="" selected>Toutes les filiere</option>
-                         {% for filiere in filieres %}
-                            <option value="{{ filiere.id }}"}>{{ filiere.filiere }}</option>
-                        {% endfor %}
-                    {% endif %}
-                </select>
-            </div>
+            {{ include('etablishment/_filiere_select.html.twig', {isSelectSubmit: true}) }}
         </div>
+
         <form action="#" class="form-btn-inside etablishment__search-form">
             <input type="text" class="form-control" placeholder="Chercher etablissements">
             <button class="btn-inside"><i class="bi bi-search"></i></button>
         </form>
-        <div class="dropdown">
-            <a href="#" class="btn-secondary bordered"><i class="bi bi-filter-square"></i>Filtrer</a>
-        </div>
+
+        <drop-down class="dropdown drop-right">
+            <a href="#" class="dropdown-trigger btn"><i class="bi bi-filter-circle icon"></i>Filtrer</a>
+            <div class="dropdown-content">
+                <h5 class="text-primary mb-2">Filter le resultats par :</h5>
+                <form action="">
+                    <div class="form-group" id="filiere-filter-mobil">
+                        <label for="filiere">Filières</label>
+                        {% include('etablishment/_filiere_select.html.twig') %}
+                    </div>
+                    <button class="btn-secondary">Filter les resultats</button>
+                </form>
+            </div>
+        </drop-down>
     </div>
 
     <div class="container">

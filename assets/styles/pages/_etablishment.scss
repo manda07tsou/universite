@@ -1,6 +1,7 @@
 .etablishment__header{
     background-color: var(--bg-light);
     display: flex;
+    gap: 10px;
     justify-content: space-between;
     align-items: center;
     padding-top: space(4);
@@ -9,6 +10,17 @@
 
     .form-select, .form-control{
         background-color: var(--bg);
+    }
+}
+
+.etablishment__header .dropdown{
+    .dropdown-content{
+        background-color: var(--bg-light);
+        width: calc(100vw - var(--container-padding) * 2)!important;
+    }
+
+    .dropdown-trigger.btn i{
+        font-size: 20px!important;
     }
 }
 
@@ -51,6 +63,14 @@
 @include up(700px){
     .filiere-filter{
         display:block;
+    }
+
+    #filiere-filter-mobil{
+        display: none;
+    }
+
+    .etablishment__header .dropdown .dropdown-content{
+        width: 400px!important;
     }
 }
 

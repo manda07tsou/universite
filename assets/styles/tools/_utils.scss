@@ -19,6 +19,14 @@
         margin-right: space(#{$i});
     }
 
+    .mx-#{$i}{
+        margin: space(#{$i}) 0px;
+    }
+
+    .my-#{$i}{
+        margin: 0px space(#{$i});
+    }
+
     .p-#{$i}{
         padding: space(#{$i});
     }
@@ -87,6 +95,10 @@
 
 .icon{
     margin-right: space(1);
+}
+
+.icon-right{
+    margin-left: space(1);
 }
 
 .line{

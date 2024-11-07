@@ -31,6 +31,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./assets/elements/dropdown.js":
+/*!*************************************!*\
+  !*** ./assets/elements/dropdown.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Dropdown: () => (/* binding */ Dropdown)\n/* harmony export */ });\nclass Dropdown extends HTMLElement{\r\n    constructor(){\r\n        super()\r\n        this.isOpen = false;\r\n        this.toggle = this.toggle.bind(this)\r\n        this.onBlur = this.onBlur.bind(this)\r\n    }\r\n\r\n    connectedCallback(){\r\n        let id = this.getAttribute('id')\r\n        this.trigger = this.querySelector('.dropdown-trigger')\r\n        this.listBox = this.querySelector('.dropdown-content')\r\n        this.trigger.setAttribute('aria-haspopup','listbox')\r\n        this.trigger.setAttribute('id', `${id}-trigger`)\r\n\r\n        this.listBox.setAttribute('tabindex', -1)\r\n        this.listBox.setAttribute('role', 'listbox')\r\n        this.listBox.setAttribute('id', `${id}-content`)\r\n\r\n        this.trigger.addEventListener('click', (e) => {\r\n            e.preventDefault()\r\n            this.toggle()\r\n        })\r\n\r\n        document.addEventListener('keyup', this.onkeyup.bind(this))\r\n\r\n        this.listBox.addEventListener('blur', this.onBlur, true)\r\n    }\r\n\r\n    toggle(){\r\n        if(this.isOpen){\r\n            this.close()\r\n        }else{\r\n            this.open()\r\n        }\r\n    }\r\n\r\n    open(){\r\n        this.trigger.setAttribute('aria-expanded', true)\r\n        this.listBox.classList.add('js-dropdown__open')\r\n        this.listBox.focus();\r\n        this.isOpen = true;\r\n    }\r\n\r\n    close(){\r\n        this.trigger.removeAttribute('aria-expanded')\r\n        this.listBox.classList.remove('js-dropdown__open')\r\n        this.isOpen = false\r\n    }\r\n\r\n\r\n    onBlur(e){\r\n        if(e.relatedTarget == this.trigger){\r\n            return;\r\n        }\r\n\r\n        if(!this.listBox.contains(e.relatedTarget)){\r\n            this.close()\r\n            return;\r\n        }\r\n    }\r\n\r\n    onkeyup(e){\r\n        if(e.key == \"Escape\" && this.isOpen){\r\n            this.close();\r\n        }\r\n    }\r\n\r\n}\n\n//# sourceURL=webpack://bachelors/./assets/elements/dropdown.js?");
+
+/***/ }),
+
 /***/ "./assets/elements/elements.js":
 /*!*************************************!*\
   !*** ./assets/elements/elements.js ***!
@@ -38,7 +49,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./burger */ \"./assets/elements/burger.js\");\n/* harmony import */ var _selectSubmit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./selectSubmit */ \"./assets/elements/selectSubmit.js\");\n\r\n\r\n\r\ncustomElements.define('burger-menu', _burger__WEBPACK_IMPORTED_MODULE_0__.Burger)\r\ncustomElements.define('select-submit', _selectSubmit__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {extends: 'select'})\n\n//# sourceURL=webpack://bachelors/./assets/elements/elements.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./burger */ \"./assets/elements/burger.js\");\n/* harmony import */ var _selectSubmit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./selectSubmit */ \"./assets/elements/selectSubmit.js\");\n/* harmony import */ var _dropdown__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./dropdown */ \"./assets/elements/dropdown.js\");\n\r\n\r\n\r\n\r\ncustomElements.define('burger-menu', _burger__WEBPACK_IMPORTED_MODULE_0__.Burger)\r\ncustomElements.define('select-submit', _selectSubmit__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {extends: 'select'})\r\ncustomElements.define('drop-down', _dropdown__WEBPACK_IMPORTED_MODULE_2__.Dropdown)\n\n//# sourceURL=webpack://bachelors/./assets/elements/elements.js?");
 
 /***/ }),
 
