@@ -58,9 +58,9 @@
                         </div>
                     </div>
                 </div>
-                <h2>Resultat{{etablishments.getTotalItemCount > 1 ? 's' : '' }} : {{ etablishments.getTotalItemCount }}</h2>
+                <h2 class="text-primary">Resultat{{etablishments.getTotalItemCount > 1 ? 's' : '' }} : {{ etablishments.getTotalItemCount }}</h2>
             {% else %}
-                <h2>Tous les établissements</h2>
+                <h2 class="text-primary">Tous les établissements</h2>
             {% endif %}
 
         </div>
@@ -75,7 +75,7 @@
                 {{ knp_pagination_render(etablishments)}}
             </div>
         {% else %}
-            <h1 class="text-primary">:( Aucun résusltat</h1>
+            <h1 class="text-primary">:( Aucun résultat</h1>
         {% endif %}
     </div>
 

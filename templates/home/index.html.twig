@@ -3,5 +3,23 @@
 {% block title %} Home {% endblock %}
 
 {% block body %}
-
+    <div class="banner">
+        <div>
+            <div class="banner-hero">
+                Trouvez <span class="text-secondary">l'université</span> de vos rêves
+            </div>
+            <div class="banner-text">Explorez, comparez et choisissez la meilleure voie pour votre avenir !</div>
+            <div class="banner-box">
+                <form class="form-flex mb-2">
+                    <input type="text" class="form-control" placeholder="Chercher un etablissement">
+                    <button class="btn-primary"><i class="bi bi-search py-2"></i></button>
+                </form>
+                <a href="{{ path('etablishment_home')}}" class="link text-primary text-strong">Toutes les etablissements <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="banner-illustration">
+            <img src="/images/illustrations/banner3.png" alt="">
+            <!-- <img src="/images/illustrations/banner7.png" alt=""> -->
+        </div>
+    </div>
 {% endblock %}
