@@ -77,7 +77,7 @@
 
 .profil__box{
     background-color: var(--bg-light);
-    padding: space(3) space(2);
+    padding: space(2);
     border: 1px solid var(--border);
     border-radius: 4px;
 }
@@ -120,6 +120,10 @@
         display: block;
         margin-left: space(6);
         height: min-content;
+    }
+
+    .profil__box{
+        padding: space(2) space(3);
     }
 
     .actu__card{

@@ -15,14 +15,14 @@
 
 .badge-primary{
     @extend %badge;
-    background-color: rgba(104, 190, 243, 0.3);
-    color: rgb(6, 109, 226);
+    background-color:#cce0ff;
+    color: #0052cc;
 }
 
 .badge-secondary{
     @extend %badge;
-    background-color: rgba(230, 172, 0, .3);
-    color:  #e69600;
+    background-color: #ffebcc;
+    color: #ff9900;
 }
 
 .badge-tierciary{
@@ -33,8 +33,8 @@
 
 .badge-success{
     @extend %badge;
-    background-color: rgba(66, 201, 167, .3);
-    color: rgb(0, 128, 68);
+    background-color: #dbffee;
+    color: #008044;
 }
 
 .badge-danger{
@@ -50,5 +50,4 @@
 .badge-small{
     font-size: .8em;
     padding: .2em .4em;
-
 }
