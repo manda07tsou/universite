@@ -61,23 +61,7 @@
         </div>
 
         <div class="profil__sidebar">
-            <div class="profil__info-header">
-                <h4><i class="bi bi-megaphone icon"></i>Dérnières actualités</h4>
-            </div>
-
-            <div class="actu__card">
-                <div class="card-title">La réntrée universitaire 2024 - 2025</div>
-                <p class="text-muted">Publié le : 04/11/2024</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae adipisci cupiditate distinctio placeat eius officia quasi, praesentium ipsa nam iure rem...</p>
-                <a href="#" class="text-primary link">Lire la suite</a>
-            </div>
-            
-            <div class="actu__card mt-3">
-                <div class="card-title">La réntrée 2024 - 2025</div>
-                <p class="text-muted">Publié le : 04/11/2024</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae adipisci cupiditate distinctio placeat eius officia quasi, praesentium ipsa nam...</p>
-                <a href="#" class="text-primary link">Lire la suite</a>
-            </div>
+            {% include "profil/_profil_sidebar.html.twig" %}
         </div>
     </div>
 {% endblock %}
