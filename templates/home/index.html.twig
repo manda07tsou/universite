@@ -27,7 +27,7 @@
             <img src="/images/illustrations/banner11.png" alt="illustration">
         </div>
         <div>
-            <div class="section-title">Votre guide vers l'université idéale</div>
+            <h3 class="section-title">Votre guide vers l'université idéale</h3>
             <div class="mt-2">
                 <p>Notre plateforme est conçus pour simplifier la recherche universitaire des étudiants en leur offrant un accès à une large sélection d'établissements et des filières</p>
                 <p>Nous vous fournissons toutes les informations nécessaires pour comparer les options et prendre les décisions éclairées.</p>
@@ -53,6 +53,30 @@
                 </div>
                 <a href="{{ path('etablishment_home')}}" class="btn-primary mt-5">Explorez maintenant</a>
             </div>
+        </div>
+    </div>
+
+    <div class="etablishment__section">
+        <div class="etablishment__section-header">
+            <div>
+                <h3 class="section-title">Etablissements les plus visitées</h3>
+                <p>Découvrez les universités les plus populaires auprès de nos visiteurs</p>
+            </div>
+            <div class="home__filter">
+                <div class="nav bg-light">
+                    {% for province in provinces %}
+                        <a href="{{ path('etablishment_home', {province: province})}}" class="nav-item">{{ province }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="grid__auto-fill" style="--min-column: 250px; --gap:20px;">
+            {% for etab in etablishments %}
+                {% include "etablishment/_card.html.twig" %}
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <a href="#" class="btn-primary mt-5">Afficher tous<i class="bi bi-arrow-right"></i></a>
         </div>
     </div>
 {% endblock %}
